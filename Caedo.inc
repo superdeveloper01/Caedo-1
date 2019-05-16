@@ -930,7 +930,7 @@ else {
 				$connectionWriteDetails = DB::$connectionDetails_write;
 				foreach($connectionWriteDetails as $databaseAlias => $databaseDetails){
 					$GLOBALS['databaseWriteAlias_'.$databaseAlias] = @new mysqli($databaseDetails->HostURL, $databaseDetails->UserName, $databaseDetails->Password, Site::$WriteDatabase[$databaseAlias]);
-					if(!$GLOBALS['databaseWriteAlias_'.$databaseAlias] || ($GLOBALS['databaseWriteAlias_'.$databaseAlias] && $GLOBALS['databaseWriteAlias_'.$databaseAlias]->connect_error)) {
+					if(!$GLOBALS['databaseWriteAlias_'.$databaseAlias]) {
 						xdebug_break();
 						
 						// can't use this: DB::$mysqli->connect_error; DB::$mysqli is not defined
